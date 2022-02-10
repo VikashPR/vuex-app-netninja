@@ -1,10 +1,10 @@
 <template>
   <div id="product-list-two">
-    <h1>Product List One</h1>
+    <h2>Product List Two</h2>
     <ul>
-      <li v-for="product in products" :key="product.name">
+      <li v-for="product in products">
         <span class="name">{{ product.name }}</span>
-        <span class="price">₹ {{ product.price }}</span>
+        <span class="price">£{{ product.price }}</span>
       </li>
     </ul>
   </div>
@@ -12,43 +12,34 @@
 
 <script>
 export default {
-  props: ["products"],
-  data() {
-    return {};
+  computed: {
+    products() {
+      return this.$store.state.products;
+    },
   },
 };
 </script>
 
-<style scoped >
+<style scoped>
 #product-list-two {
-  margin: 10px;
-  padding: 20px;
-  background: rgba(248, 244, 192, 0.863);
-  width: 50%;
+  background: #d1e4ff;
+  box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.2);
+  margin-bottom: 30px;
+  padding: 10px 20px;
 }
-h1 {
-  font-weight: 400;
-}
-ul {
+#product-list-two ul {
+  padding: 0;
   list-style-type: none;
-  display: flex;
-  flex-wrap: wrap;
 }
-li {
-  background: rgb(241, 241, 252);
+#product-list-two li {
+  margin-right: 10px;
+  margin-top: 10px;
   padding: 20px;
-  margin: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  min-width: 200px;
-}
-.name {
-  font-size: 1.4rem;
+  background: rgba(255, 255, 255, 0.7);
 }
 .price {
-  color: orange;
-  font-weight: 600;
-  font-size: 1.2rem;
+  font-weight: bold;
+  color: #860ce8;
+  display: block;
 }
 </style>
